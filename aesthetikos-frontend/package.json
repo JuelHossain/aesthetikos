@@ -39,6 +39,7 @@
     "react-input-mask": "^2.0.4",
     "react-photo-view": "^1.2.3",
     "react-router-dom": "^6.8.2",
+    "react-spring": "^9.7.1",
     "tabler-icons-react": "^1.56.0"
   },
   "devDependencies": {

@@ -4,6 +4,7 @@ import App from "./App";
 import PrivateRoute from "./components/auth/PrivateRoute";
 import Blog from "./components/blog/Blog";
 import { useUserContext } from "./context/userContext";
+import AdvertisementPage from "./pages/ad/AdvertisementPage";
 // import AdPage from "./pages/ad/AdPage";
 import Dashboard from "./pages/dashboard/Dashboard";
 import useDashboardLinks from "./pages/dashboard/links/useDashboardLinks";
@@ -57,8 +58,8 @@ const useRouter = () => {
             { path: "products/booking/:id", element: <BookingPage /> },
             { path: "payment/:id", element: <Payments /> },
             { path: "payment-success", element: <PaymentSuccess /> },
-            // { path: "ad/:id", element: <AdPage /> },
-            // { path: "ad", element: <AdPage /> },
+            { path: "ad/:id", element: <AdvertisementPage /> },
+            { path: "ad", element: <AdvertisementPage /> },
           ],
         },
         {

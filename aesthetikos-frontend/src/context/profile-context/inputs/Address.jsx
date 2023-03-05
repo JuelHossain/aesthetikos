@@ -1,5 +1,5 @@
 import { Box, Input, SimpleGrid, Text } from "@mantine/core";
-import ReactInputMask from "react-input-mask";
+import { IMaskInput } from "react-imask";
 import { useProfileContext } from "../profileContext";
 
 export default function Address() {
@@ -21,7 +21,7 @@ export default function Address() {
           <Input variant="filled" {...getInputProps("address.district")} />
         </Input.Wrapper>
         <Input.Wrapper description="Postal Code" error={errors["address.postal"]}>
-          <Input component={ReactInputMask} mask="9999" variant="filled" {...getInputProps("address.postal")} />
+          <Input component={IMaskInput} mask="0000" variant="filled" {...getInputProps("address.postal")} />
         </Input.Wrapper>
       </SimpleGrid>
     </Box>

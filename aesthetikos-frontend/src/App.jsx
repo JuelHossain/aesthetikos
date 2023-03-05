@@ -9,7 +9,7 @@ import NavigationBar from "./pages/home/banner/NavigationBar";
 export default function App() {
   return (
     <ModalsProvider modals={{ bookingModal: BookingModal }}>
-      <div className="min-h-screen flex justify-between flex-col">
+      <div className="min-h-screen flex justify-between flex-col overflow-hidden">
         <Banner />
         <NavigationBar />
 

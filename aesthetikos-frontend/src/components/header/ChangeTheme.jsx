@@ -6,7 +6,7 @@ export default function ChangeTheme({ ...props }) {
   const dark = colorScheme === "dark";
 
   return (
-    <ActionIcon {...props} className="w-8 h-8" variant="filled" color="primary" onClick={() => toggleColorScheme()}>
+    <ActionIcon radius="xl" {...props} size="md" variant="filled" color="primary" onClick={() => toggleColorScheme()}>
       {dark ? <IconSun size={18} /> : <IconMoonStars size={18} />}
     </ActionIcon>
   );

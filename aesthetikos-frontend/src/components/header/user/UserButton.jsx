@@ -11,9 +11,9 @@ export default function UserButton() {
     <HoverCard>
       <HoverCard.Target>
         {user?.photoURL ? (
-          <Avatar variant="outline" color="dark" className="w-8 h-8" src={user.photoURL} />
+          <Avatar variant="outline" color="dark" className="w-8 h-8 rounded-full" src={user.photoURL} />
         ) : (
-          <ActionIcon variant="filled" className="w-8 h-8">
+          <ActionIcon size="md" variant="filled" radius="xl">
             <IconUser />
           </ActionIcon>
         )}

@@ -1,34 +1,36 @@
 import { Button, Group, LoadingOverlay } from "@mantine/core";
+import { Link, useLocation } from "react-router-dom";
 
 import { useAuthContext } from "../../../context/authContext/authContext";
 import { useHeaderContext } from "../../../context/headerContext";
 import { useModalContext } from "../../../context/modalContext";
 import { useUserContext } from "../../../context/userContext";
-import LogoutButton from "./LogoutButton";
-import UserButton from "./UserButton";
 
-export default function LoginLogout() {
+export default function DashboardLink() {
   const { user, userLoading } = useUserContext();
   const { loading } = useAuthContext();
   const { disclosure } = useHeaderContext();
   const [, { close: closeMenu }] = disclosure;
   const { authModal } = useModalContext();
   const [, { open }] = authModal;
+  const { pathname } = useLocation();
+  const inDashboard = pathname.slice("1").startsWith("dashboard");
   return (
     <Group className="relative gap-2">
       <LoadingOverlay loaderProps={{ size: "sm" }} visible={loading || userLoading} />
       {user ? (
-        <>
-          <UserButton />
-          <LogoutButton />
-        </>
+        <Button component={Link} to={inDashboard ? "/products" : "/dashboard"} compact variant="subtle" size="lg">
+          {inDashboard ? "Products" : "Dashboard"}
+        </Button>
       ) : (
         <Button
           onClick={() => {
             closeMenu();
             open();
           }}
-          className="h-8"
+          compact
+          variant="subtle"
+          size="lg"
         >
           Log in
         </Button>

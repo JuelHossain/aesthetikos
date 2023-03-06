@@ -23,23 +23,7 @@ export default function useFormHandler({ onSubmit, reset }, id) {
         updateProduct({ patch, id });
         closeAllModals();
       } else {
-        let cat = "";
-        switch (true) {
-          case data?.price < 10000:
-            cat = "budget";
-            break;
-          case data?.price < 20000:
-            cat = "mid-range";
-            break;
-          case data?.price < 40000:
-            cat = "flagship-killer";
-            break;
-          default:
-            cat = "flagship";
-            break;
-        }
-
-        const newPhone = { ...data, createdAt: new Date(), createdBy: email, cat, status: "on-air" };
+        const newPhone = { ...data, createdAt: new Date(), createdBy: email, cat: data?.category, status: "on-air" };
 
         addProduct(newPhone, {
           onSuccess: () => {

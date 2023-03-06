@@ -1,5 +1,5 @@
 import { ActionIcon, Button, Group } from "@mantine/core";
-import { showNotification } from "@mantine/notifications";
+import { notifications } from "@mantine/notifications";
 import { IconCheck, IconHeart } from "@tabler/icons-react";
 import { openBookingModal } from "../../../../components/modals/bookingModal";
 import { useModalContext } from "../../../../context/modalContext";
@@ -23,7 +23,7 @@ export default function ActionButtons({ product, sellerLoading }) {
   const bookingHandler = () => {
     if (email) {
       if (alreadyBooked || myPhone || seller || admin) {
-        showNotification({
+        notifications.show({
           title: alreadyBooked
             ? "Already Booked"
             : myPhone
@@ -52,7 +52,12 @@ export default function ActionButtons({ product, sellerLoading }) {
   };
   return (
     <Group noWrap>
-      <ActionIcon onClick={() => addToWishList(product)} radius="md" variant="light" color={wishListed && "red"}>
+      <ActionIcon
+        onClick={() => addToWishList(product)}
+        radius="md"
+        variant={wishListed ? "filled" : "light"}
+        color="sec"
+      >
         <IconHeart size={16} />
       </ActionIcon>
       <Button

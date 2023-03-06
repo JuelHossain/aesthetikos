@@ -2,8 +2,8 @@ import { Text, Title } from "@mantine/core";
 import { openConfirmModal, openModal } from "@mantine/modals";
 import { IconAd, IconPencil, IconTrash } from "@tabler/icons-react";
 import { useNavigate } from "react-router-dom";
-import PhoneForm from "../../../../context/phone-context/PhoneForm";
-import { PhoneFormProvider } from "../../../../context/phone-context/phoneFormContext";
+import { ProductFormProvider } from "../../../../context/phone-context/productFormContext";
+import PhoneForm from "../../../../context/phone-context/ProductFormPage";
 import { useUserContext } from "../../../../context/userContext";
 import useDeleteAProduct from "../../../../hooks/phones/useDeleteAProduct";
 
@@ -24,9 +24,9 @@ export default function useProductActions() {
         classNames: { header: "items-start" },
         size: 500,
         children: (
-          <PhoneFormProvider id={id}>
+          <ProductFormProvider id={id}>
             <PhoneForm />
-          </PhoneFormProvider>
+          </ProductFormProvider>
         ),
       }),
     icon: IconPencil,

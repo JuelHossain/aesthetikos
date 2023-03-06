@@ -1,23 +1,23 @@
 import { IconAd, IconBuildingSkyscraper, IconSelect } from "@tabler/icons-react";
 
-import AddPhone from "../seller/AddPhone";
+import AddProduct from "../seller/AddAProductPage";
 import ManageAds from "../seller/ManageAds";
-import MyPhones from "../seller/MyPhones";
+import MyProducts from "../seller/MyProducts";
 
 const sellerLinks = [
   {
-    label: "Add Phone",
-    link: "/dashboard/add-phone",
-    description: "Sell Your Phone",
+    label: "Add Product",
+    link: "/dashboard/add-product",
+    description: "Sell Your Product",
     icon: IconSelect,
-    element: <AddPhone />,
+    element: <AddProduct />,
   },
   {
-    label: "My Phones",
-    link: "/dashboard/my-phones",
-    description: "Manage Your Phones",
+    label: "My Products",
+    link: "/dashboard/my-products",
+    description: "Manage Your Products",
     icon: IconBuildingSkyscraper,
-    element: <MyPhones />,
+    element: <MyProducts />,
   },
   {
     label: "Manage Ads",

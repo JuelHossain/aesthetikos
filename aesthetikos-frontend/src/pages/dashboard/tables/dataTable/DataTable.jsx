@@ -16,7 +16,7 @@ export default function DataTable({ data }) {
       children: (
         <Text>
           hence this button will delete all the selected item that's why i am not making this button functional yet. i
-          don't want to delete all of my phones yet.{" "}
+          don't want to delete all of my phones yet.
         </Text>
       ),
       labels: { confirm: "Confirm", cancel: "Cancel" },
@@ -25,16 +25,18 @@ export default function DataTable({ data }) {
   };
 
   return (
-    <ScrollArea className="flex-1 relative">
-      <Table sx={{ minWidth: 500 }} verticalSpacing="sm" highlightOnHover withBorder>
-        <TableHead {...props} />
-        <TableBody {...props} />
-      </Table>
-      {selection.length > 0 && (
-        <ActionIcon size="sm" variant="filled" color="red" className=" absolute top-4 right-4" onClick={removeAll}>
-          <IconTrash size={18} />
-        </ActionIcon>
-      )}
+    <ScrollArea className="flex-1 ">
+      <div className=" relative bg-sec-1 rounded-[40px] p-4 sm:p-8">
+        <Table sx={{ minWidth: 500 }} verticalSpacing="sm" highlightOnHover className="bg-white rounded-2xl">
+          <TableHead {...props} />
+          <TableBody {...props} />
+        </Table>
+        {selection.length > 0 && (
+          <ActionIcon size="sm" variant="filled" color="red" className=" absolute top-4 right-4" onClick={removeAll}>
+            <IconTrash size={18} />
+          </ActionIcon>
+        )}
+      </div>
     </ScrollArea>
   );
 }

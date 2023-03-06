@@ -15,7 +15,7 @@ export default function ForgotPassword() {
               Forgot Password ?
             </Button>
           </Popover.Target>
-          <Popover.Dropdown className="p-0">
+          <Popover.Dropdown className="p-0 rounded-full">
             <ForgotPasswordForm />
           </Popover.Dropdown>
         </Popover>

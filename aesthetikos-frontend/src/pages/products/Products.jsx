@@ -7,8 +7,8 @@ export default function Products() {
   useSetPageTitle("Products");
 
   return (
-    <Flex className=" gap-4  justify-between p-4 min-h-[92vh] ">
-      <div className="hidden md:flex sticky top-20">
+    <Flex className=" gap-4  justify-between p-4 pr-0">
+      <div className="hidden md:flex sticky bottom-10">
         <ProductsSidebar />
       </div>
       <Outlet />

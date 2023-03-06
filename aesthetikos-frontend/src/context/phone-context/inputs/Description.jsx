@@ -1,10 +1,10 @@
 import { Textarea } from "@mantine/core";
-import { usePhoneFormContext } from "../phoneFormContext";
+import { useProductFormContext } from "../productFormContext";
 
 export default function Description() {
-  const { getInputProps } = usePhoneFormContext();
+  const { getInputProps } = useProductFormContext();
 
   return (
-    <Textarea label="Description" placeholder="say something about your phone" {...getInputProps("description")} />
+    <Textarea label="Description" placeholder="say something about your product" {...getInputProps("description")} />
   );
 }

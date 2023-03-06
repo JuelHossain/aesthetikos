@@ -5,11 +5,11 @@ import { useEffect } from "react";
 import useGetAProduct from "../../hooks/phones/useGetAProduct";
 import useImageUpload from "../../hooks/shared/useImageUpload";
 import { useUserContext } from "../userContext";
-import initialPhoneForm from "./initialPhoneForm";
+import initialProductForm from "./initialPhoneForm";
 import useFormHandler from "./useFormHandler";
 
-export default function usePhoneForm(id) {
-  const form = useForm(initialPhoneForm);
+export default function useProductForm(id) {
+  const form = useForm(initialProductForm);
   const { phoneNumber, address } = useUserContext();
 
   const { setValues } = form || {};

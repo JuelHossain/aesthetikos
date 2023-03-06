@@ -1,12 +1,12 @@
 import { Select } from "@mantine/core";
-import { usePhoneFormContext } from "../phoneFormContext";
+import { useProductFormContext } from "../productFormContext";
 
 export default function Condition() {
-  const { getInputProps } = usePhoneFormContext();
+  const { getInputProps } = useProductFormContext();
   return (
     <Select
       {...getInputProps("condition")}
-      label="Phone Condition"
+      label="Product Condition"
       placeholder="Tell us about it"
       data={[
         { value: "fair", label: "Fair" },

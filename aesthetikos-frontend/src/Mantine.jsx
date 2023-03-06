@@ -1,5 +1,6 @@
 import { useTheme, useThemeMode } from "@juel/hooks/theme";
 import { Box, ColorSchemeProvider, LoadingOverlay, MantineProvider } from "@mantine/core";
+import { Notifications } from "@mantine/notifications";
 import { RouterProvider } from "react-router-dom";
 import useAxiosSetup from "./hooks/auth/useAxiosSetup";
 import useRouter from "./router";
@@ -10,6 +11,27 @@ function Mantine() {
   const customTheme = {
     primaryColor: "main",
     colors: mode === "dark" ? darkColors : lightColors,
+    components: {
+      Button: {
+        defaultProps: {
+          radius: "lg",
+        },
+      },
+      TextInput: {
+        defaultProps: {
+          variant: "default",
+          size: "md",
+          classNames: { input: " rounded-lg ", label: "text-main-7" },
+        },
+      },
+      PasswordInput: {
+        defaultProps: {
+          variant: "default",
+          size: "md",
+          classNames: { input: " rounded-lg ", label: "text-main-7" },
+        },
+      },
+    },
   };
   const theme = useTheme(customTheme);
 
@@ -26,6 +48,7 @@ function Mantine() {
           }
           router={router}
         />
+        <Notifications />
       </MantineProvider>
     </ColorSchemeProvider>
   );

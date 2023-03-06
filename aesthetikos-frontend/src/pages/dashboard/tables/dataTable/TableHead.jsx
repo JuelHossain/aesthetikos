@@ -11,7 +11,7 @@ export default function TableHead({ selection, setSelection, headers, rows }) {
   ));
 
   return (
-    <thead>
+    <thead className="">
       <tr>
         <th style={{ width: 40 }}>
           <Checkbox

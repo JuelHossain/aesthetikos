@@ -6,7 +6,7 @@ export default function ForgotPasswordForm() {
   const { getInputProps, sending, sendEmail } = usePasswordReset();
 
   return (
-    <Paper withBorder shadow="md" p={20} radius="md">
+    <Paper withBorder shadow="md" p={20} radius="xl">
       <Stack>
         <TextInput
           label="Your Email"

@@ -23,7 +23,7 @@ export default function useBookingForm(id) {
 
   useEffect(() => {
     if (product && seller && buyer) {
-      const { brand, model, price, phoneNumber, location } = product ?? {};
+      const { productName, cat, subCategory, price, phoneNumber, location } = product ?? {};
       const { email: sellerEmail, displayName: sellerName } = seller ?? {};
       const {
         email: buyerEmail,
@@ -33,9 +33,10 @@ export default function useBookingForm(id) {
       } = buyer ?? {};
 
       setValues({
-        brand,
-        model,
+        productName,
+        cat,
         price,
+        subCategory,
         pickupLocation: location,
         seller: { phoneNumber, email: sellerEmail, name: sellerName },
         buyer: {

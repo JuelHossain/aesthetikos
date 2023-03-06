@@ -14,7 +14,7 @@ import NotFound from "./pages/errors/NotFound";
 import Home from "./pages/home/Home";
 import BookingPage from "./pages/products/bookings/BookingPage";
 import categories from "./pages/products/components/categories";
-import MobilePhones from "./pages/products/mobile-phones/MobilePhones";
+import MobilePhones from "./pages/products/mobile-phones/ProductsPage";
 import Payments from "./pages/products/payments/Payments";
 import PaymentSuccess from "./pages/products/payments/PaymentSuccess";
 import Products from "./pages/products/Products";

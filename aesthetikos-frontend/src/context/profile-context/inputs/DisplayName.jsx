@@ -6,8 +6,8 @@ export default function DisplayName() {
   return (
     <TextInput
       size="xl"
-      variant="filled"
-      classNames={{ input: "font-bold text-2xl capitalize " }}
+      variant="default"
+      classNames={{ input: "font-bold text-2xl capitalize rounded-xl text-sec-6 border-sec-3 bg-sec-1"}}
       {...getInputProps("displayName")}
     />
   );

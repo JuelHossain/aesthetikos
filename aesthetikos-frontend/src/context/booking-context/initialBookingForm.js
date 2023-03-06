@@ -3,8 +3,9 @@ const required = (name) => (value) => value === "" ? `${name} is required` : nul
 
 const initialBookingForm = {
   initialValues: {
-    brand: "",
-    model: "",
+    productName: "",
+    cat: "",
+    subCategory: "",
     price: "",
     pickupLocation: "",
     seller: { phoneNumber: "", email: "", name: "" },
@@ -16,8 +17,9 @@ const initialBookingForm = {
     },
   },
   validate: {
-    brand: required("brand"),
-    model: required("model"),
+    productName: required("productName"),
+    cat: required("cat"),
+    subCategory: required("subCategory"),
     price: required("price"),
     pickupLocation: required("location"),
     seller: {

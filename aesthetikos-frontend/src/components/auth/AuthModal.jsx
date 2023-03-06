@@ -1,4 +1,4 @@
-import { Modal, Text, Title } from "@mantine/core";
+import { Modal, Text } from "@mantine/core";
 import { useEffect } from "react";
 import { useAuthContext } from "../../context/authContext/authContext";
 import { useModalContext } from "../../context/modalContext";
@@ -23,12 +23,12 @@ export default function AuthModal() {
   return (
     <Modal
       title={
-        <>
-          <Title order={4}>Welcome to Mobile Reseller,</Title>
-          <Text>Please {type} with email</Text>
-        </>
+        <div className="text-center my-2">
+          <h2 className="m-0 text-main-7">Welcome to Aesthetikos,</h2>
+          <Text className="text-2xl font-semibold text-main-6">Please {type} </Text>
+        </div>
       }
-      classNames={{ header: "items-start" }}
+      classNames={{ header: "items-start ", title: "flex-1" }}
       centered
       size={500}
       opened={opened}
@@ -36,6 +36,7 @@ export default function AuthModal() {
         close();
         toggleType("login");
       }}
+      radius="xl"
     >
       <AuthPage />
     </Modal>

@@ -1,12 +1,10 @@
-import { ActionIcon, Menu, Stack, useMantineTheme } from "@mantine/core";
-import { useMediaQuery } from "@mantine/hooks";
+import { ActionIcon, Menu, Stack } from "@mantine/core";
 
 import { IconMenu } from "@tabler/icons-react";
-import { useLocation, useMatch } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useHeaderContext } from "../../context/headerContext";
 import DashboardSidebar from "../sidebar/DashboardSidebar";
 import ProductsSidebar from "../sidebar/ProductsSidebar";
-import ChangeTheme from "./ChangeTheme";
 import UserSection from "./user/UserSection";
 // import useLinks from "../nav/useLinks";
 // import NavLInk from "./NavLink";
@@ -20,26 +18,24 @@ export default function DashboardMenu() {
   const { pathname } = useLocation();
   const inProducts = pathname.slice("1").startsWith("products");
   const inDashboard = pathname.slice("1").startsWith("dashboard");
-  const home = useMatch("/");
-  const theme = useMantineTheme();
-  const smallerThenMd = useMediaQuery(`(max-width:${theme.breakpoints.md})`);
 
-  return !home && smallerThenMd ? (
+  return (
     <Menu
       opened={opened}
       onClose={close}
       onOpen={open}
       transitionProps={{
-        transition: "rotate-right",
+        transition: "slide-right",
         duration: 150,
       }}
+      zIndex={10000}
     >
       <Menu.Target>
-        <ActionIcon variant="subtle">
+        <ActionIcon variant="filled" color="white">
           <IconMenu />
         </ActionIcon>
       </Menu.Target>
-      <Menu.Dropdown className="p-4  ">
+      <Menu.Dropdown className="p-4 rounded-[40px] z-20 ">
         <Stack>
           <UserSection mobile />
           {/* //   <Stack spacing={8}>{mobileNavs}</Stack>  */}
@@ -47,7 +43,5 @@ export default function DashboardMenu() {
         </Stack>
       </Menu.Dropdown>
     </Menu>
-  ) : (
-    <ChangeTheme />
   );
 }

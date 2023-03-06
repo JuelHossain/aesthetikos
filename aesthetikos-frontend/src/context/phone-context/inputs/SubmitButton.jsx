@@ -1,10 +1,10 @@
 /* eslint-disable no-nested-ternary */
 import { Button, Group } from "@mantine/core";
 import ChangeStatus from "../../../pages/dashboard/shared/ChangeStatus";
-import { usePhoneFormContext } from "../phoneFormContext";
+import { useProductFormContext } from "../productFormContext";
 
 export default function SubmitButton() {
-  const { loading, uploading, values: { exist, status } = {}, id } = usePhoneFormContext();
+  const { loading, uploading, values: { exist, status } = {}, id } = useProductFormContext();
 
   return (
     <Group position={exist ? "apart" : "right"}>

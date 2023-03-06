@@ -1,27 +1,27 @@
-import { IconArrowBounce, IconArrowDownSquare, IconArrowMoveRight, IconArrowUpSquare } from "@tabler/icons-react";
+import { IconAnkh, IconBadges, IconComet, IconScribble } from "@tabler/icons-react";
 
 const categories = [
-  { label: "Budget", icon: IconArrowDownSquare, description: "Lowest price phones", link: "/products", cat: "budget" },
+  { label: "Rare", icon: IconBadges, description: "Rare to find", link: "/products", cat: "rare" },
   {
-    label: "Mid Range",
-    icon: IconArrowBounce,
-    description: "Affordable price phones ",
-    link: "/products/mid-range",
-    cat: "mid-range",
+    label: "Popular",
+    icon: IconAnkh,
+    description: "everyone Wants Them",
+    link: "/products/popular",
+    cat: "popular",
   },
   {
-    label: "Flagship Killer",
-    icon: IconArrowMoveRight,
-    description: "Worth To Buy Phones",
-    link: "/products/flagship-killer",
-    cat: "flagship-killer",
+    label: "Classic",
+    icon: IconScribble,
+    description: "Old But Gold",
+    link: "/products/classic",
+    cat: "classic",
   },
   {
-    label: "Flagship",
-    icon: IconArrowUpSquare,
-    description: "Best phones available",
-    link: "/products/flagship",
-    cat: "flagship",
+    label: "Common",
+    icon: IconComet,
+    description: "Not So Spicy",
+    link: "/products/common",
+    cat: "common",
   },
 ];
 export default categories;

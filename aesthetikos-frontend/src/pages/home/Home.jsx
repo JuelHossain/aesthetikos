@@ -1,17 +1,13 @@
-import { Box } from "@mantine/core";
+import ProductSection from "../../components/product-section/ProductSection";
 import useSetPageTitle from "../../hooks/shared/useSetPageTitle";
 // import ProductAd from "./ad/ProductAd";
-import Advertisement from "./Advertisement";
-import Services from "./Services";
 
 export default function Home() {
   useSetPageTitle("Home");
 
   return (
-    <Box className="">
-      {/* <ProductAd /> */}
-      <Advertisement />
-      <Services />
-    </Box>
+    <div className="relative">
+      <ProductSection {...{ query: { ad: true }, title: "Featured Products" }} />
+    </div>
   );
 }

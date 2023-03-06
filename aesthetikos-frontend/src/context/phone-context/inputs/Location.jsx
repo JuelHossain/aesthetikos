@@ -1,7 +1,7 @@
 import { TextInput } from "@mantine/core";
-import { usePhoneFormContext } from "../phoneFormContext";
+import { useProductFormContext } from "../productFormContext";
 
 export default function Location() {
-  const { getInputProps } = usePhoneFormContext();
+  const { getInputProps } = useProductFormContext();
   return <TextInput label="Location" placeholder="Location Please" {...getInputProps("location")} />;
 }

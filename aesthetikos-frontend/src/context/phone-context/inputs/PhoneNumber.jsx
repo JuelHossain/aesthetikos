@@ -1,7 +1,7 @@
 import { TextInput } from "@mantine/core";
-import { usePhoneFormContext } from "../phoneFormContext";
+import { useProductFormContext } from "../productFormContext";
 
 export default function PhoneNumber() {
-  const { getInputProps } = usePhoneFormContext();
+  const { getInputProps } = useProductFormContext();
   return <TextInput label="Phone Number" placeholder="Your Phone Number Please" {...getInputProps("phoneNumber")} />;
 }

@@ -35,7 +35,7 @@ export default function MobileLinks() {
             <IconMenu />
           </ActionIcon>
         </Menu.Target>
-        <Menu.Dropdown className="p-4  md:hidden   ">
+        <Menu.Dropdown className="p-4  md:hidden z-[9999999]  ">
           <Stack>
             {/* <UserSection mobile />
           <Stack spacing={8}>{mobileNavs}</Stack> */}

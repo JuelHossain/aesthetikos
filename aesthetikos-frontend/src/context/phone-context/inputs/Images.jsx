@@ -2,10 +2,10 @@
 /* eslint-disable no-await-in-loop */
 import { Text } from "@mantine/core";
 import { Dropzone, IMAGE_MIME_TYPE } from "@mantine/dropzone";
-import { usePhoneFormContext } from "../phoneFormContext";
+import { useProductFormContext } from "../productFormContext";
 
 export default function Images() {
-  const { errors, values, setFieldError, onDrop, uploading } = usePhoneFormContext();
+  const { errors, values, setFieldError, onDrop, uploading } = useProductFormContext();
 
   const previews = values?.imageLinks?.map((link) => (
     <img alt="preview" className="w-full h-full object-cover" key={Math.random()} src={link} />
@@ -36,7 +36,7 @@ export default function Images() {
         maxFiles={4}
       >
         <Text className="mb-2" align="center">
-          {selected ? "Uploaded" : "Upload"} Images Of Phone
+          {selected ? "Uploaded" : "Upload"} Images Of Product
         </Text>
         <div className="duration-500 grid grid-cols-4 gap-2 h-6 xs:h-9 md:h-12 lg:h-16 overflow-hidden">
           {selected ? previews : placeholder}

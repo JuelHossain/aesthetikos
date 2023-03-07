@@ -5,7 +5,7 @@ import useBreakPoints from "../../../hooks/shared/useBreakPoints";
 import SmallLogos from "./SmallLogos";
 
 export default function BannerBackground() {
-  const [xs, sm, md, lg, xl] = useBreakPoints();
+  const { xs, sm, md, xl } = useBreakPoints();
   return (
     <div className=" ">
       <SmallLogos />

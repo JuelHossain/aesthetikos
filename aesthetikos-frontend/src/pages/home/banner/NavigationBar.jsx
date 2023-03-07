@@ -5,13 +5,11 @@ import { useMediaQuery } from "@mantine/hooks";
 import { useMatch } from "react-router-dom";
 import Wave from "react-wavify";
 import AppHeader from "../../../components/header/Header";
-import useBreakPoints from "../../../hooks/shared/useBreakPoints";
 
 export default function NavigationBar() {
   const theme = useMantineTheme();
   const home = useMatch("/");
   const smallerThenMd = useMediaQuery(`(max-width:${theme.breakpoints.md})`);
-  const [xs, sm, md, lg, xl] = useBreakPoints();
 
   return smallerThenMd ? (
     <div className="relative flex justify-center">

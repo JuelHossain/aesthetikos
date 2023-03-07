@@ -3,16 +3,18 @@
 // import useGetProducts from "../../hooks/phones/useGetProducts";
 import { LoadingOverlay, Paper } from "@mantine/core";
 import useGetProducts from "../../hooks/phones/useGetProducts";
+import useBreakPoints from "../../hooks/shared/useBreakPoints";
 import SectionTitle from "../sidebar/SectionTitle";
 import ProductCard from "./ProductCard";
 
 export default function ProductSection({ query, title, bottom }) {
-  const { products, isLoading } = useGetProducts(query);
+  const { btmd, btxxl } = useBreakPoints();
+  const { products, isLoading } = useGetProducts({ ...query, page: 0, size: btxxl ? 8 : btmd ? 6 : 4 });
 
   const productsElement = products?.map((item) => <ProductCard product={item} key={item._id} />);
   return (
-    <div className="relative container mx-auto flex flex-col lg:gap-10 ">
-      <SectionTitle className="text-center lg:mt-20">{title}</SectionTitle>
+    <div className="relative container mx-auto flex flex-col lg:gap-10 my-10 lg:my-20 ">
+      <SectionTitle className="text-center">{title}</SectionTitle>
       <Paper className="flex-1 relative flex flex-col gap-4 pr-4 h-[90vh] bg-transparent">
         <div className="grid flex-1 xs:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xxl:grid-cols-4 p-4 gap-x-4 relative  rounded-2xl  justify-items-stretch gap-y-0">
           {productsElement}

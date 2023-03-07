@@ -6,7 +6,7 @@ import useBreakPoints from "../../../hooks/shared/useBreakPoints";
 import random from "../../../utils/random";
 
 export default function SmallLogos() {
-  const [xs, sm, md, lg, xl] = useBreakPoints();
+  const { xs, sm, md, lg, xl } = useBreakPoints();
   const [from, setFrom] = useState(-400);
 
   const [springs, api] = useSprings(6, () => ({

@@ -16,9 +16,5 @@ export default function ProductCategories() {
     </Link>
   ));
 
-  return (
-    <div className="p-5 sm:p-10 ">
-      <div className="grid grid-cols-2 gap-4 sm:gap-6 md:gap-8  p-2 sm:grid-cols-4">{items}</div>
-    </div>
-  );
+  return <div className="grid grid-cols-2 gap-4 sm:gap-6 md:gap-8  p-2 sm:grid-cols-4">{items}</div>;
 }

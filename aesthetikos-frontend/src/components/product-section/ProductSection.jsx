@@ -11,9 +11,9 @@ export default function ProductSection({ query, title, bottom }) {
 
   const productsElement = products?.map((item) => <ProductCard product={item} key={item._id} />);
   return (
-    <div className="relative container mx-auto flex flex-col lg:gap-10">
+    <div className="relative container mx-auto flex flex-col lg:gap-10 ">
       <SectionTitle className="text-center lg:mt-20">{title}</SectionTitle>
-      <Paper className="flex-1 relative flex flex-col gap-4 pr-4 h-[90vh] ">
+      <Paper className="flex-1 relative flex flex-col gap-4 pr-4 h-[90vh] bg-transparent">
         <div className="grid flex-1 xs:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xxl:grid-cols-4 p-4 gap-x-4 relative  rounded-2xl  justify-items-stretch gap-y-0">
           {productsElement}
         </div>

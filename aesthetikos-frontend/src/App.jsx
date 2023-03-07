@@ -35,14 +35,14 @@ export default function App() {
           <Banner />
           <NavigationBar />
         </div>
-        <div className="flex-1">
+        <div className="flex-1 z-[3] bg-transparent">
           <Outlet />
         </div>
         {/* <Footer /> */}
         <AllModal />
         <animated.div
           style={spring}
-          className="absolute  w-60 xs:w-72 sm:w-80 md:w-96 lg:w-[450px] xl:w-[520px] xxl:w-[600px]  right-0 z-[1]"
+          className="absolute  w-60 xs:w-72 sm:w-80 md:w-96 lg:w-[450px] xl:w-[520px] xxl:w-[600px]  right-0 z-[2]"
         >
           <Logo className="  opacity-10" path="fill-neu-5" />
         </animated.div>

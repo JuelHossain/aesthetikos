@@ -26,8 +26,8 @@ export default function DataTable({ data }) {
 
   return (
     <ScrollArea className="flex-1 ">
-      <div className=" relative bg-sec-1 rounded-[40px] p-4 sm:p-8">
-        <Table sx={{ minWidth: 500 }} verticalSpacing="sm" highlightOnHover className="bg-white rounded-2xl">
+      <div className=" bg-sec-1 rounded-[40px] p-4 sm:p-8 h-full">
+        <Table sx={{ minWidth: 500 }} verticalSpacing="sm" highlightOnHover className="bg-white rounded-2xl h-full">
           <TableHead {...props} />
           <TableBody {...props} />
         </Table>

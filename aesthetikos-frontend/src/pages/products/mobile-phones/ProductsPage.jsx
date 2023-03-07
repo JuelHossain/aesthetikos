@@ -8,7 +8,7 @@ export default function ProductsPage({ cat }) {
   const productsElement = products?.map((item) => <ProductCard product={item} key={item?._id} />);
   if (productsError) return <ServerError />;
   return (
-    <ScrollArea className="flex-1">
+    <ScrollArea className="">
       <Paper className="flex-1 relative flex flex-col gap-4 pr-4 h-[90vh] ">
         <div className=" bg-sec-1 rounded-3xl  p-4 sm:p-8">
           <div>

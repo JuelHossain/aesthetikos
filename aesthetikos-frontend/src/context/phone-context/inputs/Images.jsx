@@ -6,6 +6,7 @@ import { useProductFormContext } from "../productFormContext";
 
 export default function Images() {
   const { errors, values, setFieldError, onDrop, uploading } = useProductFormContext();
+  console.log("errors :>> ", errors);
 
   const previews = values?.imageLinks?.map((link) => (
     <img alt="preview" className="w-full h-full object-cover" key={Math.random()} src={link} />
@@ -42,7 +43,7 @@ export default function Images() {
           {selected ? previews : placeholder}
         </div>
       </Dropzone>
-      <p className="text-xs m-0 mt-1 text-red-500">{errors.images}</p>
+      <p className="text-xs m-0 mt-1 text-red-500">{errors.imageLinks}</p>
     </div>
   );
 }

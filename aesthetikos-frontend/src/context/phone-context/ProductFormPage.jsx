@@ -1,4 +1,4 @@
-import { Group, LoadingOverlay, Paper, ScrollArea } from "@mantine/core";
+import { Group, LoadingOverlay, Paper } from "@mantine/core";
 import ProductName from "./inputs/ProductName";
 
 import Logo from "../../components/shared/Logo";
@@ -31,7 +31,7 @@ export default function ProductFormPage() {
       }`}
     >
       <LoadingOverlay visible={id && isLoading} />
-      <ScrollArea className="flex flex-col gap-4 z-10 overflow-auto">
+      <div className="flex flex-col gap-4 z-10 overflow-auto">
         {!exist && <Heading {...heading} />}
         <Group>
           <ProductName />
@@ -50,7 +50,7 @@ export default function ProductFormPage() {
         <PhoneNumber />
         <Location />
         <SubmitButton />
-      </ScrollArea>
+      </div>
       <Logo className="opacity-5 max-w-lg absolute -bottom-10 rotate-[-35deg] z-0 right-0 " path="fill-neu-5" />
     </Paper>
   );

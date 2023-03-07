@@ -13,7 +13,7 @@ export default function GiveAnAd() {
       </Title>
       <Package />
 
-      <SellerProducts />
+      <SellerProducts id={id} />
       {id && <PayForAd />}
     </Container>
   );

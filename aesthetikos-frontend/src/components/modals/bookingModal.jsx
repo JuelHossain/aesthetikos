@@ -20,6 +20,7 @@ export const openBookingModal = (id) =>
     centered: true,
     lockScroll: true,
     overflow: "inside",
-    size: 500,
-    classNames: { modal: "min-h-[55vh]" },
+    size: 700,
+    classNames: { modal: "min-h-[55vh]", title: "px-3 pt-2" },
+    radius: "xl",
   });

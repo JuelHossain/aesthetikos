@@ -6,6 +6,7 @@ import Controllers from "./Controllers";
 
 export default function ProductDetails() {
   const { loading, serverError, product } = useBookingFormContext();
+  console.log('product :>> ', product);
   const { controllerProps, ActivePage } = useBookingController();
 
   if (loading) return <LoadingOverlay visible />;

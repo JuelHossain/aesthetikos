@@ -9,7 +9,7 @@ export default function Dashboard() {
   // this is the dashboard where everyone cry. and now its my turn.
   return (
     <ProductFormProvider>
-      <Flex className=" gap-4  justify-between p-4 h-[90vh]  relative">
+      <Flex className=" gap-4  justify-between p-4 md:h-[97vh]  relative">
         <Outlet />
         <div className="hidden md:flex">
           <DashboardSidebar />

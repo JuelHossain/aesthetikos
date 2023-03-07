@@ -22,7 +22,8 @@ export default function useProductActions() {
           </>
         ),
         classNames: { header: "items-start" },
-        size: 500,
+        radius: "xl",
+        size: 800,
         children: (
           <ProductFormProvider id={id}>
             <PhoneForm />

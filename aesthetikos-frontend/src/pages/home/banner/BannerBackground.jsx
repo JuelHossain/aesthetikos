@@ -5,18 +5,17 @@ import useBreakPoints from "../../../hooks/shared/useBreakPoints";
 import SmallLogos from "./SmallLogos";
 
 export default function BannerBackground() {
-  const { xs, sm, md, xl } = useBreakPoints();
+  const { btxl, btlg, btmd, btsm, btxs } = useBreakPoints();
   return (
     <div className=" ">
       <SmallLogos />
-
       <Wave
-        className="bg-sec-5/20  h-full absolute  rotate-180 z-0 bottom-0"
+        className="bg-sec-5/20  h-full absolute  rotate-180 z-[1] bottom-0"
         options={{
-          height: xl ? 250 : md ? 250 : sm ? 200 : xs ? 150 : 100,
+          height: btxl ? 250 : btmd ? 200 : btxs ? 150 : 100,
           amplitude: 50,
           speed: 0.3,
-          points: 5,
+          points: btlg ? 5 : btmd ? 4 : 3,
         }}
       />
       {/* <Wave

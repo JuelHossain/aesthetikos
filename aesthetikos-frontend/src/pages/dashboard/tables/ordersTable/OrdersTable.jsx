@@ -1,4 +1,4 @@
-import { LoadingOverlay } from "@mantine/core";
+import Loading from "../../../../components/shared/Loading";
 import useGetOrders from "../../../../hooks/orders/useGetOrders";
 import NotFound from "../../shared/NotFound";
 import ServerError from "../../shared/ServerError";
@@ -15,7 +15,7 @@ export default function OrdersTable({ options }) {
 
   const data = { rows, headers, actions };
 
-  if (ordersLoading) return <LoadingOverlay visible />;
+  if (ordersLoading) return <Loading visible />;
   if (ordersError) return <ServerError />;
   if (orders?.length === 0) return <NotFound title="No Orders Found" children="Please do order a phone" />;
   return <DataTable data={data} />;

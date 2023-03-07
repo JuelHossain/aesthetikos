@@ -15,7 +15,7 @@ export default function Home() {
   const { user } = useUserContext();
 
   return (
-    <div className="relative max-w-screen-xl mx-auto">
+    <div className="relative max-w-screen-xl mx-auto max-xs:p-2">
       <ProductSection {...{ query: { ad: true }, title: "Featured Products" }} />
       <CallToAction
         button={{

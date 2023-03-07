@@ -1,6 +1,7 @@
 import { ActionIcon, Button, Group } from "@mantine/core";
 import { notifications } from "@mantine/notifications";
 import { IconCheck, IconHeart } from "@tabler/icons-react";
+import { useNavigate } from "react-router-dom";
 import { openBookingModal } from "../../../../components/modals/bookingModal";
 import { useModalContext } from "../../../../context/modalContext";
 import { useUserContext } from "../../../../context/userContext";
@@ -8,7 +9,7 @@ import useUpdateCurrentUser from "../../../../hooks/auth/useUpdateCurrentUser";
 import useGetOrders from "../../../../hooks/orders/useGetOrders";
 
 export default function ActionButtons({ product, sellerLoading }) {
-  const { createdBy, _id } = product || {};
+  const { createdBy, _id, ad } = product || {};
   const { email, userLoading, seller, admin } = useUserContext();
   const { orders, ordersLoading } = useGetOrders({ email, productId: _id });
   const alreadyBooked = orders?.length > 0;
@@ -20,9 +21,12 @@ export default function ActionButtons({ product, sellerLoading }) {
   const myPhone = email === createdBy;
   const { authModal } = useModalContext();
   const [, { open }] = authModal || {};
+  const navigate = useNavigate();
   const bookingHandler = () => {
     if (email) {
-      if (alreadyBooked || myPhone || seller || admin) {
+      if (myPhone && seller && !ad) {
+        navigate(`/ad/${_id}`);
+      } else if (alreadyBooked || myPhone || seller || admin) {
         notifications.show({
           title: alreadyBooked
             ? "Already Booked"
@@ -67,7 +71,7 @@ export default function ActionButtons({ product, sellerLoading }) {
         onClick={bookingHandler}
         radius="md"
       >
-        {alreadyBooked ? "Booked" : myPhone ? "Your Phone" : "Book Now"}
+        {alreadyBooked ? "Booked" : myPhone && seller && !ad ? "Give AD" : myPhone ? "Your Phone" : "Book Now"}
       </Button>
     </Group>
   );

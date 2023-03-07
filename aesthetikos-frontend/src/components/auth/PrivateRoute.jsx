@@ -1,9 +1,10 @@
-import { Button, Card, Center, LoadingOverlay, ThemeIcon, Title } from "@mantine/core";
+import { Button, Card, Center, ThemeIcon, Title } from "@mantine/core";
 import { IconLock } from "@tabler/icons-react";
 import { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { useModalContext } from "../../context/modalContext";
 import { useUserContext } from "../../context/userContext";
+import Loading from "../shared/Loading";
 
 export default function PrivateRoute() {
   const { user, userLoading } = useUserContext();
@@ -20,7 +21,7 @@ export default function PrivateRoute() {
   }, [user]);
 
   if (userLoading) {
-    return <LoadingOverlay visible />;
+    return <Loading visible />;
   }
   if (user) {
     return <Outlet />;

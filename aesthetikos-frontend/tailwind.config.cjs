@@ -2,6 +2,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 
 const { getTailColors } = require("@juel/hooks/tailwind");
+const { fontFamily } = require("tailwindcss/defaultTheme");
 
 const colors = { main: "", sec: "", neu: "" };
 const tailColors = getTailColors(colors);
@@ -29,6 +30,7 @@ module.exports = {
       xl: "1400px",
       xxl: "1600px",
     },
+
     extend: {
       colors: tailColors,
       backgroundImage: {
@@ -36,6 +38,10 @@ module.exports = {
         ad,
         service,
         featured,
+      },
+      fontFamily: {
+        ...fontFamily,
+        main: "'Tilt Neon'",
       },
     },
   },

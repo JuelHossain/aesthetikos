@@ -8,8 +8,8 @@ export default function ProductsPage({ cat }) {
   const productsElement = products?.map((item) => <ProductCard product={item} key={item?._id} />);
   if (productsError) return <ServerError />;
   return (
-    <ScrollArea className="">
-      <Paper className="flex-1 relative flex flex-col gap-4 pr-4 h-[90vh] ">
+    <ScrollArea className="flex-1 overflow-auto">
+      <Paper className="flex-1 relative flex flex-col gap-4 pr-4 h-[97vh] ">
         <div className=" bg-sec-1 rounded-3xl  p-4 sm:p-8">
           <div>
             <h2 className="text-main-9 tracking-wide max-w-xl text-3xl">

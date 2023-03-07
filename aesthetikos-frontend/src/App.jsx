@@ -3,6 +3,7 @@ import { ModalsProvider } from "@mantine/modals";
 import { useEffect, useRef } from "react";
 import { Outlet } from "react-router-dom";
 import { animated, useSpring } from "react-spring";
+import Footer from "./components/footer/Footer";
 import BookingModal from "./components/modals/bookingModal";
 import AllModal from "./components/shared/AllModal";
 import Logo from "./components/shared/Logo";
@@ -22,23 +23,28 @@ export default function App() {
   useEffect(() => {
     api.start({
       rotate: y === 0 ? -35 : random(-45, 45),
-      y:y+200,
+      y: y + 200,
       x: y === 0 ? 0 : random((width - width * 2) / 1.2, 100),
+      scale: random(8, 12) / 10,
+      // scale: y / 1000,
+      // delay: 500,
     });
   }, [y, api, width]);
 
   return (
     <ModalsProvider modals={{ bookingModal: BookingModal }}>
-      <div ref={ref} className="min-h-screen flex justify-between flex-col overflow-hidden relative">
+      <div
+        ref={ref}
+        className="min-h-screen flex justify-between flex-col overflow-hidden relative bg-blue-50/5 z-0 font-main"
+      >
         <div>
-          {" "}
           <Banner />
           <NavigationBar />
         </div>
         <div className="flex-1 z-[3] bg-transparent">
           <Outlet />
         </div>
-        {/* <Footer /> */}
+        <Footer />
         <AllModal />
         <animated.div
           style={spring}

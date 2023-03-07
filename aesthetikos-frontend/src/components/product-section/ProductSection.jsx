@@ -15,8 +15,8 @@ export default function ProductSection({ query, title, bottom }) {
   return (
     <div className="relative container mx-auto flex flex-col lg:gap-10 my-10 lg:my-20 ">
       <SectionTitle className="text-center">{title}</SectionTitle>
-      <Paper className="flex-1 relative flex flex-col gap-4 pr-4 h-[90vh] bg-transparent">
-        <div className="grid flex-1 xs:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xxl:grid-cols-4 p-4 gap-x-4 relative  rounded-2xl  justify-items-stretch gap-y-0">
+      <Paper className="flex-1 relative flex flex-col gap-4 sm:pr-4 h-[90vh] bg-transparent">
+        <div className="grid flex-1 xs:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xxl:grid-cols-4 xs:p-4 sm:gap-x-4 max-sm:pr-0 relative  rounded-2xl  justify-items-stretch gap-y-0">
           {productsElement}
         </div>
         <LoadingOverlay visible={isLoading} />

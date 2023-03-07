@@ -10,7 +10,7 @@ export default function Details({ seller, condition, productName, description })
         <Chip
           size="xs"
           radius={10}
-          variant="filled"
+          variant="light"
           color="sec"
           checked={seller?.verified || user?.verified}
           readOnly

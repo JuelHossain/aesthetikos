@@ -35,26 +35,51 @@ const neu = [
   "#4e4e4e",
 ];
 
+export const allcolors = [
+  {
+    main,
+    sec,
+  },
+  {
+    main: [
+      "#f2f9f9",
+      "#ddeff0",
+      "#bfe0e2",
+      "#92cace",
+      "#5faab1",
+      "#438e96",
+      "#3b757f",
+      "#356169",
+      "#325158",
+      "#2d464c",
+    ],
+    sec: ["#fcf5f4", "#fae8e6", "#f6d5d2", "#efb7b2", "#e48d85", "#d6675d", "#c4544a", "#a23c33", "#86352e", "#70322c"],
+  },
+  {
+    sec: ["#fff4e1", "#ffe9bf", "#ffd987", "#ffcb42", "#ffc40a", "#f8d500", "#c7b100", "#968500", "#756600", "#665b05"],
+    main: [
+      "#f3f1ff",
+      "#eae5ff",
+      "#d7ceff",
+      "#bba7ff",
+      "#9a75ff",
+      "#7c3eff",
+      "#7017ff",
+      "#6003fb",
+      "#5104d3",
+      "#4505ad",
+    ],
+  },
+];
+
 export const lightColors = {
-  main,
-  sec,
+  main: allcolors[0].main,
+  sec: allcolors[0].sec,
   neu,
-  mantis: [
-    "#f6faf3",
-    "#e9f5e3",
-    "#d3eac8",
-    "#afd89d",
-    "#82bd69",
-    "#61a146",
-    "#4c8435",
-    "#3d692c",
-    "#345427",
-    "#2b4522",
-  ],
-  bluck: ["#ebefff", "#dae2ff", "#bcc8ff", "#93a2ff", "#6970ff", "#4c46ff", "#3d26ff", "#351ae8", "#2b19ba", "#1b1464"],
 };
+
 export const darkColors = {
-  main: main.reverse,
-  sec: sec.reverse,
-  neu: neu.reverse,
+  main: allcolors[0].main,
+  sec: allcolors[0].sec,
+  neu,
 };

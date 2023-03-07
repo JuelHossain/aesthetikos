@@ -1,7 +1,8 @@
 import { useTheme, useThemeMode } from "@juel/hooks/theme";
-import { Box, ColorSchemeProvider, LoadingOverlay, MantineProvider } from "@mantine/core";
+import { ColorSchemeProvider, MantineProvider } from "@mantine/core";
 import { Notifications } from "@mantine/notifications";
 import { RouterProvider } from "react-router-dom";
+import Loading from "./components/shared/Loading";
 import useAxiosSetup from "./hooks/auth/useAxiosSetup";
 import useRouter from "./router";
 import { darkColors, lightColors } from "./utils/colors";
@@ -11,6 +12,8 @@ function Mantine() {
   const customTheme = {
     primaryColor: "main",
     colors: mode === "dark" ? darkColors : lightColors,
+    fontFamily: "tilt neon",
+
     components: {
       Button: {
         defaultProps: {
@@ -24,6 +27,21 @@ function Mantine() {
           classNames: { input: " rounded-lg ", label: "text-main-7" },
         },
       },
+      Input: {
+        defaultProps: {
+          variant: "default",
+          size: "md",
+          classNames: { input: " rounded-lg ", label: "text-main-7" },
+        },
+      },
+      NumberInput: {
+        defaultProps: {
+          variant: "default",
+          size: "md",
+          classNames: { input: " rounded-lg ", label: "text-main-7" },
+        },
+      },
+
       PasswordInput: {
         defaultProps: {
           variant: "default",
@@ -40,14 +58,7 @@ function Mantine() {
   return (
     <ColorSchemeProvider colorScheme={mode} toggleColorScheme={toggleMode}>
       <MantineProvider withGlobalStyles withNormalizeCSS theme={theme}>
-        <RouterProvider
-          fallbackElement={
-            <Box>
-              <LoadingOverlay visible loaderProps={{ variant: "bars" }} />
-            </Box>
-          }
-          router={router}
-        />
+        <RouterProvider fallbackElement={<Loading visible />} router={router} />
         <Notifications />
       </MantineProvider>
     </ColorSchemeProvider>

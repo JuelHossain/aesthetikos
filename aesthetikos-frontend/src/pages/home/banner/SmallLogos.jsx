@@ -67,5 +67,5 @@ export default function SmallLogos() {
       <Logo className=" w-10 xs:w-20 sm:w-24  opacity-10" path="fill-neu-5" />
     </animated.div>
   ));
-  return <div className="absolute w-full flex gap-8 z-[1] bottom-10 items-center justify-center ">{smallLogos}</div>;
+  return <div className="absolute w-full flex gap-8 z-[2] bottom-10 items-center justify-center ">{smallLogos}</div>;
 }

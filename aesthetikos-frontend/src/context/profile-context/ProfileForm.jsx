@@ -1,4 +1,4 @@
-import { Paper, SimpleGrid, Stack } from "@mantine/core";
+import { Paper, ScrollArea, SimpleGrid, Stack } from "@mantine/core";
 import { useProfileContext } from "./profileContext";
 
 import Logo from "../../components/shared/Logo";
@@ -20,7 +20,7 @@ export default function ProfileForm() {
         component="form"
         className="max-w-3xl flex flex-col justify-center gap-4 w-full p-6 items-start relative  bg-white overflow-hidden  rounded-[40px] "
       >
-        <div className="w-full z-10">
+        <ScrollArea className="w-full z-10 flex flex-col gap-4 overflow-auto">
           <Role />
           <Stack>
             <PhotoUrl />
@@ -33,7 +33,7 @@ export default function ProfileForm() {
           </SimpleGrid>
           <Address />
           <SubmitButton />
-        </div>
+        </ScrollArea>
         <Logo className="opacity-5 max-w-lg absolute bottom-0 rotate-[-35deg] z-0 right-0 " path="fill-main-6" />
       </Paper>
     </Wrapper>

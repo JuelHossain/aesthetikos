@@ -1,4 +1,4 @@
-import { Group, Paper } from "@mantine/core";
+import { Group, LoadingOverlay, Paper, ScrollArea } from "@mantine/core";
 import ProductName from "./inputs/ProductName";
 
 import Logo from "../../components/shared/Logo";
@@ -15,7 +15,7 @@ import SubmitButton from "./inputs/SubmitButton";
 import { useProductFormContext } from "./productFormContext";
 
 export default function ProductFormPage() {
-  const { submitHandler, values: { exist } = {} } = useProductFormContext();
+  const { submitHandler, values: { exist } = {}, isLoading, id } = useProductFormContext();
 
   const heading = exist
     ? { title: "Update Product", text: "Please Update Your Product" }
@@ -30,7 +30,8 @@ export default function ProductFormPage() {
         !exist ? "p-6" : "pt-2"
       }`}
     >
-      <div className="flex flex-col gap-4 z-10">
+      <LoadingOverlay visible={id && isLoading} />
+      <ScrollArea className="flex flex-col gap-4 z-10 overflow-auto">
         {!exist && <Heading {...heading} />}
         <Group>
           <ProductName />
@@ -49,7 +50,7 @@ export default function ProductFormPage() {
         <PhoneNumber />
         <Location />
         <SubmitButton />
-      </div>
+      </ScrollArea>
       <Logo className="opacity-5 max-w-lg absolute -bottom-10 rotate-[-35deg] z-0 right-0 " path="fill-neu-5" />
     </Paper>
   );

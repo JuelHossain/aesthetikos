@@ -13,7 +13,8 @@ export default function useProductForm(id) {
   const { phoneNumber, address } = useUserContext();
 
   const { setValues } = form || {};
-  const { product } = useGetAProduct(id);
+  const { product, isLoading } = useGetAProduct(id);
+  console.log("isLoading2 :>> ", isLoading);
   const [uploadImage, uploading] = useImageUpload();
 
   const onDrop = async (files) => {
@@ -40,5 +41,5 @@ export default function useProductForm(id) {
 
   const { submitHandler, loading, serverError } = useFormHandler(form, id);
 
-  return { ...form, submitHandler, loading, serverError, onDrop, uploading, id };
+  return { ...form, submitHandler, loading, isLoading, serverError, onDrop, uploading, id };
 }

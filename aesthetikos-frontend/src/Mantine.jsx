@@ -1,5 +1,5 @@
 import { useTheme, useThemeMode } from "@juel/hooks/theme";
-import { ColorSchemeProvider, MantineProvider } from "@mantine/core";
+import { ColorSchemeProvider, MantineProvider, useMantineColorScheme } from "@mantine/core";
 import { Notifications } from "@mantine/notifications";
 import { RouterProvider } from "react-router-dom";
 import Loading from "./components/shared/Loading";
@@ -55,6 +55,8 @@ function Mantine() {
 
   useAxiosSetup();
   const router = useRouter();
+
+
   return (
     <ColorSchemeProvider colorScheme={mode} toggleColorScheme={toggleMode}>
       <MantineProvider withGlobalStyles withNormalizeCSS theme={theme}>

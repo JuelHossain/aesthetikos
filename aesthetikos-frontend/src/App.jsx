@@ -1,3 +1,4 @@
+import { useMantineColorScheme } from "@mantine/core";
 import { useViewportSize, useWindowScroll } from "@mantine/hooks";
 import { ModalsProvider } from "@mantine/modals";
 import { useEffect, useRef } from "react";
@@ -28,6 +29,8 @@ export default function App() {
       // delay: 500,
     });
   }, [y, api, width]);
+  const { toggleColorScheme } = useMantineColorScheme();
+  toggleColorScheme("light");
 
   return (
     <ModalsProvider modals={{ bookingModal: BookingModal }}>

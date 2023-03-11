@@ -5,9 +5,9 @@ import { useWindowScroll } from "@mantine/hooks";
 import { useMatch } from "react-router-dom";
 import { animated, useSpring } from "react-spring";
 import SideBarNav from "../sidebar/SidebarNav";
-import ChangeTheme from "./ChangeTheme";
 
 import DashboardMenu from "./DashboardMenu";
+import AlientIcon from "./user/AlientIcon";
 import LogoutButton from "./user/LogoutButton";
 
 function AppHeader() {
@@ -28,7 +28,7 @@ function AppHeader() {
       className={` top-4 px-2 flex  items-center  rounded-xl  w-full ring max-w-md justify-center mx-auto z-20 bg-main-2`}
     >
       <Group className="justify-between duration-500 w-full items-center " noWrap>
-        {home ? <ChangeTheme /> : <DashboardMenu />}
+        {home ? <AlientIcon /> : <DashboardMenu />}
         <SideBarNav extra="mb-1" />
         <LogoutButton />
       </Group>

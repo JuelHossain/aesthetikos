@@ -3,15 +3,16 @@ import { ColorSchemeProvider, MantineProvider } from "@mantine/core";
 import { Notifications } from "@mantine/notifications";
 import { RouterProvider } from "react-router-dom";
 import Loading from "./components/shared/Loading";
+import { useColorsContext } from "./context/colorsContext";
 import useAxiosSetup from "./hooks/auth/useAxiosSetup";
 import useRouter from "./router";
-import { darkColors, lightColors } from "./utils/colors";
 
 function Mantine() {
   const { mode, toggleMode } = useThemeMode();
+  const [colors] = useColorsContext();
   const customTheme = {
     primaryColor: "main",
-    colors: mode === "dark" ? darkColors : lightColors,
+    colors,
     fontFamily: "tilt neon",
 
     components: {

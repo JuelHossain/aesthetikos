@@ -1,10 +1,14 @@
 // all imports
 
 import { ActionIcon } from "@mantine/core";
+import { useColorsContext } from "../../../context/colorsContext";
 
 export default function AlientIcon(props) {
+  const [, changeColor] = useColorsContext();
+  console.log("changeColor :>> ", changeColor);
   return (
     <ActionIcon
+      onClick={changeColor}
       {...props}
       color="main"
       size="md"

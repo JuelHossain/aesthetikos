@@ -1,3 +1,6 @@
+import { useState } from "react";
+import random from "./random";
+
 const main = [
   "#f5f6fa",
   "#eaebf4",
@@ -71,17 +74,17 @@ export const allcolors = [
     ],
   },
 ];
-export const useColors = ()=>{
-  
-}
-export const lightColors = {
-  main: allcolors[0].main,
-  sec: allcolors[0].sec,
-  neu,
-};
-
-export const darkColors = {
-  main: allcolors[0].main,
-  sec: allcolors[0].sec,
-  neu,
+export const useColors = (mode) => {
+  const [index, setIndex] = useState(0);
+  console.log("index :>> ", index);
+  return [
+    {
+      main: allcolors[index].main,
+      sec: allcolors[index].sec,
+      neu,
+    },
+    () => {
+      setIndex(random(0, allcolors.length - 1));
+    },
+  ];
 };

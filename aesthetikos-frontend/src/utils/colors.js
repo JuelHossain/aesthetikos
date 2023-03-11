@@ -77,14 +77,19 @@ export const allcolors = [
 export const useColors = (mode) => {
   const [index, setIndex] = useState(0);
   console.log("index :>> ", index);
+  const changeTheme = () => {
+    const ran = random(0, allcolors.length - 1);
+    console.log("ran :>> ", ran);
+    console.log("index :>> ", index);
+    if (ran === index) changeTheme();
+    else setIndex(ran);
+  };
   return [
     {
       main: allcolors[index].main,
       sec: allcolors[index].sec,
       neu,
     },
-    () => {
-      setIndex(random(0, allcolors.length - 1));
-    },
+    changeTheme,
   ];
 };

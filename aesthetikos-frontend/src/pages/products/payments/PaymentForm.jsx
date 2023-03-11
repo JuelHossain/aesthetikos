@@ -1,16 +1,41 @@
 import { Button, Group, NumberInput, SimpleGrid, TextInput } from "@mantine/core";
+import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { Link } from "react-router-dom";
 import { openBookingModal } from "../../../components/modals/bookingModal";
 import { usePaymentFormContext } from "../../../context/paymentContext/paymentFormContext";
 import { useUserContext } from "../../../context/userContext";
 
 export default function PaymentForm({ id, price, noDetails }) {
-  const { getInputProps, values: { paymentMethod } = {}, submitting, submitHandler } = usePaymentFormContext();
+  const {
+    getInputProps,
+    values: { paymentMethod } = {},
+    submitting,
+    submitHandler,
+    stripePromise,
+    onSubmit,
+  } = usePaymentFormContext();
 
   const { user: { displayName, email } = {} } = useUserContext();
+  const stripe = useStripe();
+  const elements = useElements();
+
   return (
-    <form onSubmit={submitHandler}>
+    <form
+      onSubmit={onSubmit(async (data) => {
+        if (elements == null) {
+          return;
+        }
+
+        const { error, paymentMethod } = await stripe.createPaymentMethod({
+          type: "card",
+          card: elements.getElement(CardElement),
+        });
+
+        await submitHandler(data);
+      })}
+    >
       <Group position="apart">
+      {/* <CardElement /> */}
         <p className="text-xl">Go Ahead Do it</p>
         {!noDetails && <Button onClick={() => openBookingModal(id)}>Check The Booking Details</Button>}
       </Group>

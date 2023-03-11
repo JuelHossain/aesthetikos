@@ -4,7 +4,7 @@ import SectionTitle from "../../../components/sidebar/SectionTitle";
 import ServiceCard from "./ServiceCard";
 
 export default function ServiceSection({ title, data }) {
-  const servicesElements = data?.map((item) => <ServiceCard key={data.title} {...item} />);
+  const servicesElements = data?.map((item) => <ServiceCard key={Math.random()} {...item} />);
 
   return (
     <div className="my-5 sm:py-10 flex flex-col container mx-auto gap-10 sm:gap-20">

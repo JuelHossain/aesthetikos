@@ -6,36 +6,36 @@ import useUpdateAOrder from "../../hooks/orders/useUpdateAOrder";
 import useUpdateAProduct from "../../hooks/phones/useUpdateAProduct";
 import { useUserContext } from "../userContext";
 
-export default function usePaymentHandler({ onSubmit }, id, productId, ad) {
+export default function usePaymentHandler(id, productId, ad) {
   const { updateOrderAsync, updatingOrder, updatingOrderError } = useUpdateAOrder(id);
+
   const { updateProductAsync, updatingProduct, updateError } = useUpdateAProduct(productId);
+
   const navigate = useNavigate();
   const { email } = useUserContext();
 
-  const submitHandler = (e) => {
-    const handler = async () => {
-      if (id) await updateOrderAsync({ patch: { paid: true }, id });
-      if (productId) {
-        const patch = { status: "sold", soldTo: email };
+  const submitHandler = async () => {
+    if (id) await updateOrderAsync({ patch: { paid: true }, id });
 
-        await updateProductAsync(
-          { patch: ad || patch, id: productId },
-          {
-            onSuccess: () => {
-              if (ad) {
-                showNotification({ title: "Your Ad Has been added Successfully" });
-                navigate("/");
-              } else {
-                navigate("/payment-success");
-              }
-            },
+    if (productId) {
+      const patch = { status: "sold", soldTo: email };
+
+      await updateProductAsync(
+        { patch: ad || patch, id: productId },
+        {
+          onSuccess: () => {
+            if (ad) {
+              showNotification({ title: "Your Ad Has been added Successfully" });
+              navigate("/");
+            } else {
+              navigate("/payment-success");
+            }
           },
-        );
-      } else {
-        showNotification({ title: "Please Select A Product First" });
-      }
-    };
-    onSubmit(handler)(e);
+        },
+      );
+    } else {
+      showNotification({ title: "Please Select A Product First" });
+    }
   };
 
   const submitting = updatingOrder || updatingProduct;

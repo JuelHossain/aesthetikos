@@ -13,10 +13,8 @@ import random from "./utils/random";
 
 export default function App() {
   const [{ y }] = useWindowScroll();
-  const { width, height } = useViewportSize();
+  const { width } = useViewportSize();
   const ref = useRef();
-  console.log("width :>> ", width);
-  console.log("height :>> ", height);
 
   const [spring, api] = useSpring(() => ({ from: { y: -50, rotate: -35 } }));
 

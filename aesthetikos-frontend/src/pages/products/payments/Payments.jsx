@@ -1,4 +1,6 @@
 import { LoadingOverlay, Notification, Stack, Text, Title } from "@mantine/core";
+import { Elements } from "@stripe/react-stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 import { IconExclamationMark } from "@tabler/icons-react";
 import { useParams } from "react-router-dom";
 import { PaymentFormProvider } from "../../../context/paymentContext/paymentFormContext";
@@ -13,6 +15,8 @@ export default function Payments() {
   const { user } = useUserContext();
   const { order, orderLoading, orderError } = useGetAOrder(id);
   const { productName, cat, price, productId } = order || {};
+
+  const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PK);
 
   if (orderLoading) return <LoadingOverlay visible />;
   if (orderError) return <Notification title="Server Side Error">Please Try Again later</Notification>;
@@ -44,7 +48,9 @@ export default function Payments() {
           </div>
 
           <PaymentMethods />
-          <PaymentForm price={price} id={productId} />
+          <Elements stripe={stripePromise}>
+            <PaymentForm price={price} id={productId} />
+          </Elements>
         </Stack>
       </div>
     </PaymentFormProvider>

@@ -6,6 +6,7 @@ const { fontFamily } = require("tailwindcss/defaultTheme");
 
 const colors = { main: "", sec: "", neu: "" };
 const tailColors = getTailColors(colors);
+console.log('tailColors :>> ', tailColors);
 const bannerImages = [
   "https://images.pexels.com/photos/957040/night-photograph-starry-sky-night-sky-star-957040.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
 ];

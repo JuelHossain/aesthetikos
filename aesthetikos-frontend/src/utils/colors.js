@@ -71,7 +71,9 @@ export const allcolors = [
     ],
   },
 ];
-
+export const useColors = ()=>{
+  
+}
 export const lightColors = {
   main: allcolors[0].main,
   sec: allcolors[0].sec,

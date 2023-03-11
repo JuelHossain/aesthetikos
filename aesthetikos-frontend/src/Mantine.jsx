@@ -1,15 +1,17 @@
-import { MantineProvider } from "@mantine/core";
+import { useTheme, useThemeMode } from "@juel/hooks/theme";
+import { ColorSchemeProvider, MantineProvider } from "@mantine/core";
 import { Notifications } from "@mantine/notifications";
 import { RouterProvider } from "react-router-dom";
 import Loading from "./components/shared/Loading";
 import useAxiosSetup from "./hooks/auth/useAxiosSetup";
 import useRouter from "./router";
-import { lightColors } from "./utils/colors";
+import { darkColors, lightColors } from "./utils/colors";
 
 function Mantine() {
+  const { mode, toggleMode } = useThemeMode();
   const customTheme = {
     primaryColor: "main",
-    colors: lightColors,
+    colors: mode === "dark" ? darkColors : lightColors,
     fontFamily: "tilt neon",
 
     components: {
@@ -49,15 +51,18 @@ function Mantine() {
       },
     },
   };
+  const theme = useTheme(customTheme);
 
   useAxiosSetup();
   const router = useRouter();
 
   return (
-    <MantineProvider withGlobalStyles withNormalizeCSS theme={customTheme}>
-      <RouterProvider fallbackElement={<Loading visible />} router={router} />
-      <Notifications />
-    </MantineProvider>
+    <ColorSchemeProvider colorScheme={mode} toggleColorScheme={toggleMode}>
+      <MantineProvider withGlobalStyles withNormalizeCSS theme={theme}>
+        <RouterProvider fallbackElement={<Loading visible />} router={router} />
+        <Notifications />
+      </MantineProvider>
+    </ColorSchemeProvider>
   );
 }
 

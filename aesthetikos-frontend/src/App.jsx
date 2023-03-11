@@ -1,4 +1,3 @@
-import { useMantineColorScheme } from "@mantine/core";
 import { useViewportSize, useWindowScroll } from "@mantine/hooks";
 import { ModalsProvider } from "@mantine/modals";
 import { useEffect, useRef } from "react";
@@ -29,14 +28,14 @@ export default function App() {
       // delay: 500,
     });
   }, [y, api, width]);
-  const { toggleColorScheme } = useMantineColorScheme();
-  toggleColorScheme("light");
+  // const { toggleColorScheme } = useMantineColorScheme();
+  // toggleColorScheme("light");
 
   return (
     <ModalsProvider modals={{ bookingModal: BookingModal }}>
       <div
         ref={ref}
-        className="min-h-screen flex justify-between flex-col overflow-hidden relative bg-blue-50/5 z-0 font-main"
+        className=" light min-h-screen flex justify-between flex-col overflow-hidden relative bg-blue-50/5 z-0 font-main"
       >
         <div>
           <Banner />
